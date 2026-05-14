@@ -1,0 +1,23 @@
+### CREATE PROJECT
+POST http://localhost:3000/projects
+Content-Type: application/json
+
+{
+  "name": "Backend Mastery",
+  "description": "Learn scalable backend systems"
+}
+
+### CREATE TASK
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+  "title": "Learn Prisma Relations",
+  "projectId": 1
+}
+
+### GET PROJECTS
+GET http://localhost:3000/projects
+
+### GET TASKS
+GET http://localhost:3000/tasks

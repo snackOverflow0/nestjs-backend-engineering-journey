@@ -1,0 +1,11 @@
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "name": "Christopher",
+  "email": "castelo01@test.com",
+  "password": "NestJSMaster2026"
+}
+
+###
+GET http://localhost:3000/users

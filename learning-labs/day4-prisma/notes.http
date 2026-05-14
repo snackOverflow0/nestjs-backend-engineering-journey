@@ -1,0 +1,18 @@
+###
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+  "title": "Learn Prisma",
+  "content": "Understand CRUD operations deeply",
+  "priority": "HIGH"
+}
+
+###
+GET http://localhost:3000/notes
+
+###
+PATCH http://localhost:3000/notes/1/archive
+
+###
+DELETE http://localhost:3000/notes/1
