@@ -1,0 +1,17 @@
+### CREATE WORKOUT
+POST http://localhost:3000/workouts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2hyaXMwMUBnbWFpbC5jb20iLCJpYXQiOjE3NzkwMjk2NjQsImV4cCI6MTc3OTExNjA2NH0.T8UzJTXs3XBc_iZfNR8GEcJiW_owWJXVToE9UVK7bN8
+Content-Type: application/json
+
+{
+  "title": "Push Day",
+  "description": "Chest and shoulders"
+}
+
+### GET WORKOUTS
+GET http://localhost:3000/workouts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2hyaXMwMUBnbWFpbC5jb20iLCJpYXQiOjE3NzkwMjk2NjQsImV4cCI6MTc3OTExNjA2NH0.T8UzJTXs3XBc_iZfNR8GEcJiW_owWJXVToE9UVK7bN8
+
+### DELETE WORKOUT
+DELETE http://localhost:3000/workouts/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2hyaXMwMUBnbWFpbC5jb20iLCJpYXQiOjE3NzkwMjk2NjQsImV4cCI6MTc3OTExNjA2NH0.T8UzJTXs3XBc_iZfNR8GEcJiW_owWJXVToE9UVK7bN8

@@ -1,0 +1,36 @@
+### REGISTER
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "chris@gmail.com",
+  "password": "123456",
+  "name": "Chris"
+}
+
+### LOGIN
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "chris@gmail.com",
+  "password": "123456"
+}
+
+### CREATE NOTE
+POST http://localhost:3000/notes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2hyaXNAZ21haWwuY29tIiwiaWF0IjoxNzc4OTQyMzExLCJleHAiOjE3NzkwMjg3MTF9.wVb9EzdcaJuIGZnj3k610fXz6eVwDavpmx8wGazlgBA
+Content-Type: application/json
+
+{
+  "title": "My First Note",
+  "content": "Learning NestJS authorization"
+}
+
+### GET NOTES
+GET http://localhost:3000/notes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2hyaXNAZ21haWwuY29tIiwiaWF0IjoxNzc4OTQyMzExLCJleHAiOjE3NzkwMjg3MTF9.wVb9EzdcaJuIGZnj3k610fXz6eVwDavpmx8wGazlgBA
+
+### DELETE NOE
+DELETE http://localhost:3000/notes/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2hyaXNAZ21haWwuY29tIiwiaWF0IjoxNzc4OTQyMzExLCJleHAiOjE3NzkwMjg3MTF9.wVb9EzdcaJuIGZnj3k610fXz6eVwDavpmx8wGazlgBA
