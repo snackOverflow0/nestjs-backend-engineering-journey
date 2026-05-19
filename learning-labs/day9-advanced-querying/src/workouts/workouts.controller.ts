@@ -39,7 +39,15 @@ export class WorkoutsController {
     sort = 'desc'
   ) {
     return this.workoutsService.findAll(
-      req.user.id
+      req.user.id,
+
+      search,
+
+      Number(page),
+
+      Number(limit),
+
+      sort
     );
   }
 

@@ -15,3 +15,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsI
 ### DELETE WORKOUT
 DELETE http://localhost:3000/workouts/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2hyaXMwMUBnbWFpbC5jb20iLCJpYXQiOjE3NzkwMjk2NjQsImV4cCI6MTc3OTExNjA2NH0.T8UzJTXs3XBc_iZfNR8GEcJiW_owWJXVToE9UVK7bN8
+
+### SEARCH
+GET http://localhost:3000/workouts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2hyaXMwMUBnbWFpbC5jb20iLCJpYXQiOjE3NzkwMjk2NjQsImV4cCI6MTc3OTExNjA2NH0.T8UzJTXs3XBc_iZfNR8GEcJiW_owWJXVToE9UVK7bN8
+
+### PAGINATION
+GET http://localhost:3000/workouts?page=1&limit=2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2hyaXMwMUBnbWFpbC5jb20iLCJpYXQiOjE3NzkwMjk2NjQsImV4cCI6MTc3OTExNjA2NH0.T8UzJTXs3XBc_iZfNR8GEcJiW_owWJXVToE9UVK7bN8
+
+### SORT ASC
+GET http://localhost:3000/workouts?sort=asc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2hyaXMwMUBnbWFpbC5jb20iLCJpYXQiOjE3NzkwMjk2NjQsImV4cCI6MTc3OTExNjA2NH0.T8UzJTXs3XBc_iZfNR8GEcJiW_owWJXVToE9UVK7bN8
+
+### COMBINED
+GET http://localhost:3000/workouts?search=leg&page=1&limit=5&sort=desc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2hyaXMwMUBnbWFpbC5jb20iLCJpYXQiOjE3NzkwMjk2NjQsImV4cCI6MTc3OTExNjA2NH0.T8UzJTXs3XBc_iZfNR8GEcJiW_owWJXVToE9UVK7bN8

@@ -1,0 +1,18 @@
+GET http://localhost:3000/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTc3OTE5Mzc5NCwiZXhwIjoxNzc5Nzk4NTk0fQ.qx_GwivK5K5jFlZKwb1MmOLh8-ivQc5BadQgJFBKQuU
+
+### CREATE TASK
+POST http://localhost:3000/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTc3OTE5Mzc5NCwiZXhwIjoxNzc5Nzk4NTk0fQ.qx_GwivK5K5jFlZKwb1MmOLh8-ivQc5BadQgJFBKQuU
+Content-Type: application/json
+
+{
+  "title": "Study NestJS",
+  "description": "Finish phase 5"
+}
+
+### FIND ONE
+
+### UPDATE TASK
+
+### DELETE TASK
