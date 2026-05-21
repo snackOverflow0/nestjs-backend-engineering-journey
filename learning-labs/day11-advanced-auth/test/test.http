@@ -1,0 +1,32 @@
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com",
+  "password": "123456"
+}
+
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com",
+  "password": "123456"
+}
+
+### 
+GET http://localhost:3000/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJpYXQiOjE3NzkzMzAzMzksImV4cCI6MTc3OTMzMTIzOX0.DiSsuCvjwRKWQgyBvYOylhiWNNnTrdv3Mi_ecPIfMoc
+
+###
+POST http://localhost:3000/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJpYXQiOjE3NzkzNzE2MTYsImV4cCI6MTc3OTk3NjQxNn0.EI3l1xCE8Jhm9qMueHam0jMUeyh7SOutKXOcOXt_2KU"
+}
+
+###
+POST http://localhost:3000/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJpYXQiOjE3NzkzNzE2MTYsImV4cCI6MTc3OTM3MjUxNn0.Gszql_CivbmXa3MshWY3B1Zwx_jW2IJrmepfzIzYqRE
