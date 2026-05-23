@@ -1,26 +1,32 @@
-import { Injectable } from '@nestjs/common';
-import { CreateUploadDto } from './dto/create-upload.dto';
-import { UpdateUploadDto } from './dto/update-upload.dto';
+import { Injectable }
+from '@nestjs/common';
 
+import cloudinary from './cloudinary/cloudinary';
+
+import { Multer } from 'multer';
 @Injectable()
 export class UploadService {
-  create(createUploadDto: CreateUploadDto) {
-    return 'This action adds a new upload';
-  }
+  async uploadImage(
+    file: Express.Multer.File,
+  ) {
+    return new Promise<any>(
+      (resolve, reject) => {
+        cloudinary.uploader
+          .upload_stream(
+            {
+              folder: 'mediahub',
+            },
 
-  findAll() {
-    return `This action returns all upload`;
-  }
+            (error, result) => {
+              if (error) {
+                return reject(error);
+              }
 
-  findOne(id: number) {
-    return `This action returns a #${id} upload`;
-  }
-
-  update(id: number, updateUploadDto: UpdateUploadDto) {
-    return `This action updates a #${id} upload`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} upload`;
+              resolve(result);
+            },
+          )
+          .end(file.buffer);
+      },
+    );
   }
 }

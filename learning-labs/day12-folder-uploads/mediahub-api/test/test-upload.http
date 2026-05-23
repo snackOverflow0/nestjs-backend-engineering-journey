@@ -1,0 +1,8 @@
+POST http://localhost:3000/upload
+Content-Type: multipart/form-data 
+Content-Type: image/jpeg
+
+{
+  "name": "file",
+  "filename": "a7c5790debc0895cee66bcfa4e4804d7.jpg"
+}
