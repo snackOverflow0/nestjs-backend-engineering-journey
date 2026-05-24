@@ -20,6 +20,8 @@ model User {
   password        String
   name            String
 
+  avatar          String?
+
   avatarUrl       String?   // For Phase 6 (avatar uploads)
   refreshToken    String?   // hashed refresh token storage
   
