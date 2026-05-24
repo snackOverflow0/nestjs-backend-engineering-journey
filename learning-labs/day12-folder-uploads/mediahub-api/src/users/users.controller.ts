@@ -6,6 +6,7 @@ import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Getuser } from 'src/auth/decorators/get-user.decorator';
 import { UploadService } from 'src/upload/upload.service';
+import { multerOptions } from 'src/upload/multer/multer.config';
 
 @Controller('users')
 export class UsersController {
@@ -17,7 +18,10 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   @Patch('avatar')
   @UseInterceptors(
-    FileInterceptor('file')
+    FileInterceptor(
+      'file',
+      multerOptions
+    )
   ) 
 
   async uploadAvatar(
