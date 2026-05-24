@@ -1,20 +1,27 @@
-import { Injectable }
-from '@nestjs/common';
-
-import cloudinary from './cloudinary/cloudinary';
+import {
+  Injectable,
+  Inject,
+} from '@nestjs/common';
 
 import { Multer } from 'multer';
 @Injectable()
+
 export class UploadService {
+  constructor(
+    @Inject('CLOUDINARY')
+    private cloudinary,
+  ) {}
+
   async uploadImage(
     file: Express.Multer.File,
   ) {
     return new Promise<any>(
       (resolve, reject) => {
-        cloudinary.uploader
+        this.cloudinary.uploader
           .upload_stream(
             {
-              folder: 'mediahub',
+              folder:
+                'mediahub',
             },
 
             (error, result) => {
@@ -25,6 +32,7 @@ export class UploadService {
               resolve(result);
             },
           )
+
           .end(file.buffer);
       },
     );
