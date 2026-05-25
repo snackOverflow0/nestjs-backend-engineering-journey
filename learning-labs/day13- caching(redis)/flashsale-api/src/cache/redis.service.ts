@@ -62,4 +62,33 @@ export class RedisService
     ) {
       return this.client.del(key)
     }
+
+    async zIncrBy(
+      key: string,
+      increment: number,
+      member: string,
+    ) {
+
+      return this.client.zIncrBy(
+        key,
+        increment,
+        member,
+      );
+    }
+
+    async zRevRange(
+      key: string,
+      start: number,
+      stop: number,
+    ) {
+
+      return this.client.zRange(
+        key,
+        start,
+        stop,
+        {
+          REV: true,
+        },
+      );
+    }
   }

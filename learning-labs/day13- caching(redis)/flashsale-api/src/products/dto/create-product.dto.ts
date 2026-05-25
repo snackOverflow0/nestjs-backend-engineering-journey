@@ -1,4 +1,5 @@
 import {
+  IsInt,
   IsNumber,
   IsString,
   Min
@@ -15,7 +16,6 @@ export class CreateProductDto {
   @Min(1)
   price!: number
 
-  @IsNumber()
-  @Min(0)
+  @IsInt()
   stock!: number
 }
