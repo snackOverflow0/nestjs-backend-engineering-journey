@@ -3,10 +3,28 @@ import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { JwtGuard } from 'src/auth/guard/jwt.guard';
+import { RedisService } from 'src/cache/redis.service';
 
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly productsService: ProductsService) {}
+  constructor(
+    private readonly productsService: ProductsService,
+    private redisService: RedisService
+  ) {}
+
+  @Get('redis/test')
+  async redisTest() {
+    await this.redisService.set(
+      'hello',
+      { message: 'Redis works' },
+      60
+    )
+
+    const data =
+      await this.redisService.get('hello')
+
+    return JSON.parse(data)
+  }
 
   @UseGuards(JwtGuard)
   @Post()
