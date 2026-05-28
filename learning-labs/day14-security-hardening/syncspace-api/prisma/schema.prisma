@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TaskStatus {
+  OPEN
+  IN_PROGRESS
+  DONE
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id                  String      @id @default(cuid())
+
+  email               String      @unique
+  password            String
+  name                String
+
+  avatar              String?
+
+  role                Role        @default(USER)
+
+  hashedRefreshToken  String?
+
+  // Relations
+  workspaces  Workspace[]
+  tasks       Task[]
+
+  createdAt   DateTime    @default(now())
+}
+
+model Workspace {
+  id          String      @id @default(cuid())
+  name        String
+
+  // Foreign key
+  ownerId     String
+
+  // Relation to User
+  owner       User        @relation(fields: [ownerId], references: [id])
+
+  // One workspace has many tasks
+  tasks       Task[]
+
+  createdAt   DateTime    @default(now())
+}
+
+model Task {
+  id           String      @id @default(cuid())
+
+  title        String
+  description  String?
+  completed    Boolean     @default(false)
+
+  status      TaskStatus   @default(OPEN)
+
+  // Foreign keys
+  workspaceId  String
+  assignedToId String?
+
+  // Relations
+  workspace    Workspace   @relation(fields: [workspaceId], references: [id])
+  assignedTo   User?       @relation(fields: [assignedToId], references: [id])
+
+  createdAt    DateTime    @default(now())
+}
