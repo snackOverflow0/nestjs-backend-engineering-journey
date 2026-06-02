@@ -14,12 +14,15 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     })
   }
 
+  // If the token signature is valid, NestJS passes the decoded payload here
   async validate(payload: { sub: string, email: string, role: string }) {
+      // Verify the user actually still exists in our database
       const user = await this.prisma.user.findUnique({
         where: { id: payload.sub }
       })
       if (!user) throw new UnauthorizedException('User account no longer exists')
 
+      // Whatever we return here gets automatically attached to req.user
       return {
         id: user.id,
         email: user.email,

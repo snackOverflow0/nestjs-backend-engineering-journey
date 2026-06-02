@@ -30,7 +30,6 @@ export class WorkspaceService {
     const workspace = await this.prisma.workspace.findUnique({
       where: { id }
     })
-
     if (!workspace) throw new NotFoundException('Workspace not found')
 
     if (workspace.ownerId !== userId) {
